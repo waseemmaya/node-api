@@ -1,22 +1,16 @@
 const express = require("express");
+const path = require("path");
+var cors = require("cors");
 const app = express();
 const mongoose = require("./config/db");
-var cors = require("cors");
-const path = require("path");
 
+// app.use(express.static(path.join(__dirname, "client/build")));
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "client/build")));
 
-const port = process.env.PORT || 5000;
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
-});
-
-app.listen(port, () => {
-  console.log(`=======> My Server is running on port ${port} <=======`);
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname + "/client/build/index.html"));
+// });
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -33,3 +27,8 @@ db.once("open", () => {
 });
 
 app.use("/", require("./routes/index.js"));
+
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`=======> My Server is running on port ${port} <=======`);
+});

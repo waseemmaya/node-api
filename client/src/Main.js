@@ -27,6 +27,7 @@ class Main extends Component {
     axios
       .get(`/tasks`)
       .then(response => {
+        console.log('response.data :', response.data);
         this.props.pushTasks(response.data);
       })
       .catch(error => {
