@@ -5,7 +5,7 @@ import { addTask } from "../Redux/actions/actions";
 import { connect } from "react-redux";
 import axios from "axios";
 import swal from "sweetalert2";
-const url = "http://localhost:5000";
+// const url = "http://localhost:5000";
 class AddTask extends Component {
   constructor(props) {
     super(props);

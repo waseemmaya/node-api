@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { pushTasks } from "./Redux/actions/actions";
 import AddTask from "./Components/AddTask";
 
-const url = "http://localhost:5000";
+// const url = "http://localhost:5000";
 
 class Main extends Component {
   render() {
@@ -25,9 +25,9 @@ class Main extends Component {
 
   fetchTodos = () => {
     axios
-      .get(`/tasks`)
+      .get("/tasks")
       .then(response => {
-        console.log('response.data :', response.data);
+        console.log("response.data :", response.data);
         this.props.pushTasks(response.data);
       })
       .catch(error => {

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { removeTask } from "../Redux/actions/actions";
 import axios from "axios";
 
-const url = "http://localhost:5000";
+// const url = "http://localhost:5000";
 
 class ToDos extends Component {
   render() {
