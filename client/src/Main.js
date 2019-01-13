@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { App, List } from "grommet/components/..";
+import { App, List, Heading } from "grommet/components/..";
 import axios from "axios";
 import Head from "./Components/Head";
 import ToDos from "./Components/ToDos";
@@ -18,7 +18,11 @@ class Main extends Component {
         <Head />
         <AddTask />
         <br />
-        {this.renderTodos()}
+        {this.props.tasks.length === 0 ? (
+          <Heading>No Task add one...</Heading>
+        ) : (
+          this.renderTodos()
+        )}
       </App>
     );
   }
