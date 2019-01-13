@@ -20,16 +20,12 @@ router.get("/tasks/:id", (req, res) => {
 // Add Task
 router.post("/addTask", (req, res) => {
   console.log("<========Post Request====>", req.body);
-
   const task = new Tasks(req.body);
   task.save(req.body, function(err, result) {
     if (err) return;
-
     console.log("result", result.id);
     res.send(result);
   });
-
-  // task.save();
 });
 
 // Delete User

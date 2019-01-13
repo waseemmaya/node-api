@@ -26,6 +26,7 @@ class ToDos extends Component {
     axios
       .delete(`/tasks/${id}`)
       .then(response => {
+        console.log("response :", response);
         this.props.removeTask(id);
       })
       .catch(error => {

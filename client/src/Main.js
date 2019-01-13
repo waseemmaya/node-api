@@ -25,9 +25,10 @@ class Main extends Component {
 
   fetchTodos = () => {
     axios
-      .get("/tasks")
+      .get(`/tasks`)
       .then(response => {
         console.log("response.data :", response.data);
+        console.log("response :", response);
         this.props.pushTasks(response.data);
       })
       .catch(error => {

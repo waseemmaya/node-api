@@ -53,11 +53,11 @@ class AddTask extends Component {
     axios
       .post(`/addTask`, task)
       .then(response => {
-        // console.log("<=======responseData====>", response);
-        this.props.addTask(response.data);
+        console.log("<=======AddTask====>", response);
         this.setState({
           taskName: ""
         });
+        this.props.addTask(response.data);
       })
       .catch(error => {
         console.log(error);

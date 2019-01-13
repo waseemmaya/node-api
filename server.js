@@ -8,10 +8,6 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "client/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
-});
-
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -28,7 +24,7 @@ db.once("open", () => {
 
 app.use("/", require("./routes/index.js"));
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`=======> My Server is running on port ${port} <=======`);
 });
